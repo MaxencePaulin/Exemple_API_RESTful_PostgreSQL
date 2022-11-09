@@ -24,7 +24,7 @@ export const client = new Client({
     host: pg_host,
     database: pg_database,
     password: pg_password,
-})
+});
 
 client.connect();
 console.log('Connexion à la base de données réussie');
