@@ -1,6 +1,7 @@
 import etudiantService from '../services/etudiant.service.js';
 import juryService from '../services/jury.service.js';
 import salleService from "../services/salle.service.js";
+import entrepriseService from '../services/entreprise.service.js';
 
 const validNameEntreprise = (req, res, next) => {
     const body = req.body;
@@ -123,6 +124,35 @@ const validNote = (req, res, next) => {
     next();
 }
 
+const validIdEntreprise = (req, res, next) => {
+    const params = req.params;
+    if (!params.id) {
+        return res.status(400).send(
+                {
+                    success:0,
+                    data:"L'identifiant de l'entreprise est obligatoire"
+                });
+    }
+    entrepriseService.find(params, (error, results) => {
+        if (error) {
+            return res.status(400)
+                .send({success:0,data:error});
+        }
+        next();
+    });
+}
+
+const EntrepriseNonLiee = (req, res, next) => {
+    const params = req.params;
+    entrepriseService.unlinked(params, (error, results) => {
+        if (error) {
+            return res.status(400)
+                .send({success:0,data:error});
+        }
+        next();
+    });
+}
+
 export default {
     validNameEntreprise,
     validNameProfesseur,
@@ -131,5 +161,7 @@ export default {
     verifExistIdSalle,
     verifExistEtudiant,
     verifExistJury,
-    validNote
+    validNote,
+    validIdEntreprise,
+    EntrepriseNonLiee
 }

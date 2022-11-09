@@ -20,3 +20,14 @@ export const addEntreprise = (req, res) => {
         return res.status(200).send(results);
     });
 }
+
+export const deleteEntreprise = (req, res) => {
+    const params = req.params;
+    entrepriseService.del(params, (error, results) => {
+        if (error) {
+            return res.status(400)
+               .send({success:0,data:error});
+        }
+        return res.status(200).send(results);
+    });
+}

@@ -35,6 +35,13 @@ const port = process.env.PORT;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.use((req, res, next) => {
+    console.log("[x] URL: "+req.url);
+    console.log("[x] IP: "+req.ip);
+    console.log("-----------------------");
+    next();
+});
+
 app.use('/entreprise', entrepriseRoutes);
 app.use('/professeur', professeurRoutes);
 app.use('/jury', juryRoutes);
