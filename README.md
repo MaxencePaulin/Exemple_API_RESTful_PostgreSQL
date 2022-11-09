@@ -18,3 +18,7 @@ Ensuite lancer les commandes suivantes
 npm i
 npm run start
 ```
+
+Rendez-vous sur http://localhost:3000
+
+ps : regardez le projet "tp1SQL" pour voir comment créer la base de donnée
