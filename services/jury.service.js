@@ -1,6 +1,7 @@
 import { client } from '../server.js';
 
 const add = (body, callback) => {
+    // je peux faire les vérifications ici
     client.query(
         `INSERT INTO jury (nomjury, idsalle) VALUES ($1, $2)`,
         [body.nomjury, body.idsalle],

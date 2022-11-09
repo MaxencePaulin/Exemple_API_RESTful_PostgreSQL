@@ -14,6 +14,7 @@ const list = (callback) => {
 }
 
 const add = (body, callback) => {
+    // je peux faire les vérifications ici
     client.query(
         `INSERT INTO entreprise (nomentreprise) VALUES ($1)`,
         [body.nomentreprise],
@@ -54,7 +55,7 @@ const unlinked = (params, callback) => {
                 return callback(error);
             }
             if (results.rowCount > 0) {
-                return callback("Entreprise liée à un jury");
+                return callback("Supression interdite, entreprise liée à un étudiant");
             }
             return callback(null, results.rows);
         }
@@ -62,6 +63,7 @@ const unlinked = (params, callback) => {
 }
 
 const del = (params, callback) => {
+    // ou je peux faire directement les vérifications ici et supprimer l'entreprise si elle n'est pas liée
     client.query(
         `DELETE FROM entreprise WHERE identreprise = $1`,
         [params.id],

@@ -20,6 +20,7 @@ const more5OrEquals = (callback) => {
 }
 
 const add = (body, callback) => {
+    // je peux faire les vérifications ici
     client.query(
         `INSERT INTO professeur (nomprofesseur) VALUES ($1)`,
         [body.nomprofesseur],

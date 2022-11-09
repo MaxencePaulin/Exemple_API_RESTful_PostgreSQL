@@ -1,6 +1,7 @@
 import { client } from '../server.js';
 
 const add = (body, callback) => {
+    // je peux faire les vérifications ici
     let date = new Date();
     date = (date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear());
     client.query(
