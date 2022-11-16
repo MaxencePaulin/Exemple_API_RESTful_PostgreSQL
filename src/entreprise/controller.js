@@ -16,6 +16,9 @@ const getEntreprises = (req, res) => {
 
 const addEntreprise = (req, res) => {
     const {nomentreprise} = req.body;
+    if (!nomentreprise || nomentreprise === "") {
+        return res.status(400).send({success: 0, data: "Veulliez insérer un nom d'entreprise"});
+    }
     pool.query(queries.getEntrepriseByName, [nomentreprise], (error, results) => {
         if (error) {
             return res.status(400).send({success: 0, data: error});

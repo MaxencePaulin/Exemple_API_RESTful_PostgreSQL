@@ -16,6 +16,9 @@ const getProfesseursByNbSoutenance = (req, res) => {
 
 const addProfesseur = (req, res) => {
     const {nomprofesseur} = req.body;
+    if (!nomprofesseur || nomprofesseur === "") {
+        return res.status(400).send({success: 0, data: "Veulliez insérer un nom de professeur"});
+    }
     pool.query(queries.getProfesseurByName, [nomprofesseur], (error, results) => {
         if (error) {
             return res.status(400).send({success: 0, data: error});
