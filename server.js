@@ -3,6 +3,9 @@ import dotenv from 'dotenv';
 import pool from './db.js';
 import studentRoutes from './src/students/routes.js';
 import entrepriseRoutes from './src/entreprise/routes.js';
+import professeurRoutes from './src/professeur/routes.js';
+import juryRoutes from './src/jury/routes.js';
+import soutenanceRoutes from './src/soutenance/routes.js';
 // import { default as entrepriseRoutes } from './routes/entreprise.router.js';
 // import { default as professeurRoutes } from './routes/professeur.router.js';
 // import { default as juryRoutes } from './routes/jury.router.js';
@@ -36,6 +39,9 @@ app.use((req, res, next) => {
 
 app.use("/api/v1/students", studentRoutes);
 app.use('/api/v1/entreprise', entrepriseRoutes);
+app.use("/api/v1/professeur", professeurRoutes);
+app.use("/api/v1/jury", juryRoutes);
+app.use("/api/v1/soutenance", soutenanceRoutes);
 
 app.get('/', (req, res) => {
     res.send('Hello World!');
