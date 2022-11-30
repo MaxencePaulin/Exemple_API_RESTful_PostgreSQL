@@ -1,4 +1,4 @@
-# TP2 
+# Exemple d'API RESTful avec PostgreSQL sans ORM
 
 Nodejs + Express (+postgresql)
 
