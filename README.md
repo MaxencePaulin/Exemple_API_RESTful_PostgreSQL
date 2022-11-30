@@ -4,7 +4,7 @@ Nodejs + Express (+postgresql)
 
 ## Installation
 
-Avoir une base de donnée postgres et configurer le .env avec 
+Avoir une base de donnée PostgreSQL et configurer le .env avec 
 ```
 PORT=XXXX
 PG_USER=XXXX
@@ -13,7 +13,7 @@ PG_DATABASE=XXXX
 PG_PASSWORD=XXXX
 ```
 
-Ensuite lancer les commandes suivantes
+Ensuite, lancez les commandes suivantes
 ```bash
 npm i
 npm run start
