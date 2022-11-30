@@ -19,7 +19,7 @@ npm i
 npm run start
 ```
 
-Rendez-vous sur http://localhost:3000
+Rendez-vous sur http://localhost:{PORT}
 
 <!-- ps : regardez le projet "tp1SQL" pour voir comment créer la base de donnée
  -->
